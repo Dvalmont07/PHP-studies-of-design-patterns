@@ -1,9 +1,9 @@
 <?php
 /**
  * PHP version 7.1
- * Itax - Interface that serves the tax type classes
+ * Icms - Class that calculates ICSM tax
  *
- * @category  Inteface
+ * @category  Class
  * @package   Strategy
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
@@ -12,10 +12,13 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
+
 namespace Strategy;
+
+
 /**
  * PHP version 7.1
- * Itax - Interface that serves the tax type classes
+ * Icms - Class that calculates ICSM tax
  *
  * @category  Inteface
  * @package   Strategy
@@ -26,13 +29,8 @@ namespace Strategy;
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-interface Itax
+class Icms implements ITax
 {
 
-    /**
-     * Calculate taxes
-     *
-     * @return void
-     */
-    public function calculate();
+    
 }
