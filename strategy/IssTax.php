@@ -13,8 +13,6 @@
  * @since     1.0.0
  */
 
-
-
 /**
  * PHP version 7.1
  * Iss - Class that calculates ISS tax
