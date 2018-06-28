@@ -13,4 +13,12 @@
  * @since     1.0.0
  */
 
- require_once 'Config.php';
+require_once 'Config.php';
+require_once 'autoload.php';
+
+
+$icms = new TaxCalculator();
+$iss = new TaxCalculator();
+
+echo $icms->calculate(500, new IcmsTax) . "<br/>";
+echo $iss->calculate(500, new IssTax) . "<br/>";

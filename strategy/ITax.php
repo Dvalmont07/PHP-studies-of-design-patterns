@@ -12,7 +12,7 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-namespace Strategy;
+
 /**
  * PHP version 7.1
  * Itax - Interface that serves the tax type classes
@@ -32,7 +32,9 @@ interface Itax
     /**
      * Calculate taxes
      *
+     * @param double $number value to calculate
+     * 
      * @return void
      */
-    public function calculate();
+    public function calculate($number);
 }

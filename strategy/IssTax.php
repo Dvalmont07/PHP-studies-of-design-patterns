@@ -13,7 +13,7 @@
  * @since     1.0.0
  */
 
-namespace Strategy;
+
 
 /**
  * PHP version 7.1

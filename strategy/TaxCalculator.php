@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.1
- * TaxCalculator - Class that calculates ICSM tax
+ * TaxCalculator - Class that calculates taxes
  *
  * @category  Class
  * @package   Strategy
@@ -13,10 +13,8 @@
  * @since     1.0.0
  */
 
-namespace Strategy;
-
 /**
- * TaxCalculator - Class that calculates ICSM tax
+ * TaxCalculator - Class that calculates taxes
  *
  * @category  Class
  * @package   Strategy
@@ -29,5 +27,17 @@ namespace Strategy;
  */
 class TaxCalculator
 {
+    /**
+     * Receives number and class and delegates
+     *
+     * @param double $number value to be calculated
+     * @param class  $class  class to be used
+     *
+     * @return void
+     */
+    public function calculate($number, $class)
+    {
+        return number_format($class->calculate($number));
+    }
 
 }

@@ -13,7 +13,9 @@
  * @since     1.0.0
  */
 
-namespace Strategy;
+
+
+//require_once 'ITax.php';
 
 /**
  * PHP version 7.1
