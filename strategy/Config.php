@@ -1,9 +1,9 @@
 <?php
 /**
  * PHP version 7.1
- * Index - Root file
+ * Config - Class centraliza data
  *
- * @category  File
+ * @category  Config
  * @package   Strategy
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
@@ -12,5 +12,4 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-
- require_once 'Config.php';
+define("ICSM", 0.5);
