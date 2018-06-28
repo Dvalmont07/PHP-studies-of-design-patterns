@@ -15,7 +15,6 @@
 
 namespace Strategy;
 
-
 /**
  * PHP version 7.1
  * Icms - Class that calculates ICSM tax
@@ -31,6 +30,16 @@ namespace Strategy;
  */
 class Icms implements ITax
 {
+    /**
+     * Function that calculates ICMS
+     *
+     * @param double $number double number
+     *
+     * @return void
+     */
+    public function calculate($number)
+    {
+        return $number * ICMS;
+    }
 
-    
 }
