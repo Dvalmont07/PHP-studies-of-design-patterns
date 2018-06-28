@@ -12,6 +12,8 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
+
+ // Defining taxes
 define("ICMS", 0.18);
 define("ISS", 0.02);
 define("XPTO", 0.05);

@@ -37,6 +37,7 @@ class TaxCalculator
      */
     public function calculate($number, $class)
     {
+        // Transforms the number to show only 2 decimal 
         return number_format((float) $class->calculate($number), 2, '.', '');
     }
 

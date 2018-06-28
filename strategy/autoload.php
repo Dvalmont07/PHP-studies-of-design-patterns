@@ -13,7 +13,6 @@
  * @since     1.0.0
  */
 
-
 /**
  * __autoload - loads class includes without the need of write it down on every file
  *
