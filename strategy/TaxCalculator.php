@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.1
- * Iss - Class that calculates ISS tax
+ * TaxCalculator - Class that calculates ICSM tax
  *
  * @category  Class
  * @package   Strategy
@@ -16,8 +16,7 @@
 namespace Strategy;
 
 /**
- * PHP version 7.1
- * Iss - Class that calculates ISS tax
+ * TaxCalculator - Class that calculates ICSM tax
  *
  * @category  Class
  * @package   Strategy
@@ -28,18 +27,7 @@ namespace Strategy;
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IssTax implements ITax
+class TaxCalculator
 {
-    /**
-     * Function that calculates ICMS
-     *
-     * @param double $number double number
-     *
-     * @return void
-     */
-    public function calculate($number)
-    {
-        return $number * ISS;
-    }
 
 }
