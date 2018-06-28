@@ -16,9 +16,12 @@
 require_once 'Config.php';
 require_once 'autoload.php';
 
+$value = 400.05;
 
 $icms = new TaxCalculator();
 $iss = new TaxCalculator();
+$xpto = new TaxCalculator();
 
-echo $icms->calculate(500, new IcmsTax) . "<br/>";
-echo $iss->calculate(500, new IssTax) . "<br/>";
+echo "That's ICMS tax: <strong>R$ " . $icms->calculate($value, new IcmsTax) . "</strong><br/>";
+echo "That's ISS tax: <strong>R$ " . $iss->calculate($value, new IssTax) . "</strong><br/>";
+echo "That's XPTO tax: <strong>R$ " . $xpto->calculate($value, new XptoTax) . "</strong><br/>";

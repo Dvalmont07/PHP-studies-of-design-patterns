@@ -14,3 +14,4 @@
  */
 define("ICMS", 0.18);
 define("ISS", 0.02);
+define("XPTO", 0.05);

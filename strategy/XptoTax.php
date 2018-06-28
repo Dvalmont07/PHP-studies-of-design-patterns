@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.1
- * TaxCalculator - Class that calculates taxes
+ * XptoTax - Class that calculates ISS Xpto
  *
  * @category  Class
  * @package   Strategy
@@ -13,8 +13,11 @@
  * @since     1.0.0
  */
 
+
+
 /**
- * TaxCalculator - Class that calculates taxes
+ * PHP version 7.1
+ * XptoTax - Class that calculates ISS Xpto
  *
  * @category  Class
  * @package   Strategy
@@ -25,19 +28,18 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class TaxCalculator
+class XptoTax implements ITax
 {
     /**
-     * Receives number and class and delegates
+     * Function that calculates ICMS
      *
-     * @param double $number value to be calculated
-     * @param class  $class  class to be used
+     * @param double $number double number
      *
      * @return void
      */
-    public function calculate($number, $class)
+    public function calculate($number)
     {
-        return number_format((float) $class->calculate($number), 2, '.', '');
+        return $number * XPTO;
     }
 
 }
