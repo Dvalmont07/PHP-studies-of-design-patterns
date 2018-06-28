@@ -12,4 +12,5 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-define("ICSM", 0.5);
+define("ICSM", 0.18);
+define("ISS", 0.02);

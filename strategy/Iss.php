@@ -28,7 +28,7 @@ namespace Strategy;
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class Icms implements ITax
+class Iss implements ITax
 {
     /**
      * Function that calculates ICMS
@@ -39,7 +39,7 @@ class Icms implements ITax
      */
     public function calculate($number)
     {
-        return $number * ICMS;
+        return $number * ISS;
     }
 
 }
