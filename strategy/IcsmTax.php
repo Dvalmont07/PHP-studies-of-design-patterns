@@ -28,7 +28,7 @@ namespace Strategy;
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class Icms implements ITax
+class IcmsTax implements ITax
 {
     /**
      * Function that calculates ICMS
