@@ -25,8 +25,6 @@
  */
 function __autoload($class)
 {
-
-    //global $wr;
     $class = $class . ".php";
 
     if (!file_exists($class)) {

@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.1
- * Config - Class centraliza data
+ * Config - File that centralizes data
  *
  * @category  Config
  * @package   Strategy
