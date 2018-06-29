@@ -74,10 +74,8 @@ class PriceCenter
             $file = fopen($fileString, 'r');
             $result = json_decode(fread($file, 1024));
         } else {
-            $result = json_encode(array("quantity" => 0));
+            $result = json_decode(json_encode(array("quantity" => 0)));
         }
-
-        var_dump($result);
         return $result;
     }
 
