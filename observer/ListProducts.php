@@ -40,7 +40,7 @@ class ListProducts
             new Product("Coke", 5.0, 15),
             new Product("Chips", 8.0, 25),
             new Product("Cheese", 20.10, 11),
-            new Product("Cake", 15.16, 31),
+            //new Product("Cake", 15.16, 31),
         );
         return $products;
     }
