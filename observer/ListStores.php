@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * ListStores - Lists stores
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -12,14 +12,12 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-//require_once 'ITax.php';
 
 /**
- * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * ListStores - Lists stores
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -27,18 +25,20 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IcmsTax implements ITax
+
+class ListStores
 {
     /**
-     * Function that calculates ICMS
+     * Returns a list of stores (observables)
      *
-     * @param double $number double number
-     *
-     * @return void
+     * @return array
      */
-    public function calculate($number)
+    public function getListStores()
     {
-        return $number * ICMS;
+        $stores = array(
+            new GroceryStore(),
+            new Supermarket()
+        );
+        return $stores;
     }
-
 }

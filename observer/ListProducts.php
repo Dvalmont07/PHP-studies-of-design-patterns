@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * ListProducts - Lists products
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -12,14 +12,12 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-//require_once 'ITax.php';
 
 /**
- * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * ListProducts - Lists products
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -27,18 +25,23 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IcmsTax implements ITax
+
+class ListProducts
 {
     /**
-     * Function that calculates ICMS
+     * Retuns a list of products
      *
-     * @param double $number double number
-     *
-     * @return void
+     * @return array
      */
-    public function calculate($number)
+    public function getListProducts()
     {
-        return $number * ICMS;
+        // This can be a database table
+        $products = array(
+            new Product("Coke", 5.0, 15), 
+            new Product("Chips", 8.0, 25), 
+            new Product("Cheese", 20.10, 11),
+            // new Product("Cake", 15.16, 31)
+        );
+        return $products;
     }
-
 }

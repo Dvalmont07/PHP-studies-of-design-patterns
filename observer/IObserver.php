@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Ibserver - Interface that serves the observers type classes
  *
- * @category  Class
- * @package   Strategy
+ * @category  Inteface
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -12,14 +12,13 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-//require_once 'ITax.php';
 
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Ibserver - Interface that serves the observers type classes
  *
- * @category  Class
- * @package   Strategy
+ * @category  Inteface
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -27,18 +26,28 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IcmsTax implements ITax
+interface IObserver
 {
+
+    // /**
+    //  * Subscribe to Price Central
+    //  *
+    //  * @return void
+    //  */
+    // public function subscribe();
+    // /**
+    //  * Unsubscribe from Price Central
+    //  *
+    //  * @return void
+    //  */
+    // public function unsubscribe();
+
     /**
-     * Function that calculates ICMS
+     * Use updated data
      *
-     * @param double $number double number
-     *
+     * @param array $products list of products
+     * 
      * @return void
      */
-    public function calculate($number)
-    {
-        return $number * ICMS;
-    }
-
+    public function update($products);
 }

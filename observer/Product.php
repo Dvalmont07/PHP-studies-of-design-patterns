@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Products - Products and its properties
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -12,14 +12,14 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-//require_once 'ITax.php';
+
+require_once 'IObserver.php';
 
 /**
- * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Products - Products and its properties
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -27,18 +27,25 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IcmsTax implements ITax
+class Product
 {
+    public $name;
+    public $price;
+    public $quantity;
+
     /**
-     * Function that calculates ICMS
+     * Undocumented function
      *
-     * @param double $number double number
+     * @param string $name     product name
+     * @param float  $price    product price
+     * @param int    $quantity product quantity
      *
      * @return void
      */
-    public function calculate($number)
+    public function __construct($name, $price, $quantity)
     {
-        return $number * ICMS;
+        $this->name = $name;
+        $this->price = $price;
+        $this->quantity = $quantity;
     }
-
 }

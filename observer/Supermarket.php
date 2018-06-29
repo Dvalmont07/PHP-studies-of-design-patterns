@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Supermarket - Observer of Price Center
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -12,14 +12,14 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-//require_once 'ITax.php';
+
+require_once 'IObserver.php';
 
 /**
- * PHP version 7.1
- * Icms - Class that calculates ICSM tax
+ * Supermarket - Observer of Price Center
  *
  * @category  Class
- * @package   Strategy
+ * @package   Observer
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -27,18 +27,23 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class IcmsTax implements ITax
+class Supermarket implements IObserver
 {
     /**
-     * Function that calculates ICMS
+     * Use updated data
      *
-     * @param double $number double number
+     * @param array $products list of products
      *
      * @return void
      */
-    public function calculate($number)
+    public function update($products)
     {
-        return $number * ICMS;
-    }
+        echo "<div><h1>Supermarket store: </h1>";
+        foreach ($products as $value) {
+            echo "<div>Product: " . $value->name . "<br/>";
+            echo "Quantity: " . $value->quantity . "</div><br/>";
+        }
+        echo "</div>";
 
+    }
 }
