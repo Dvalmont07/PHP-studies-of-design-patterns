@@ -30,20 +30,18 @@ require_once 'IObserver.php';
 class PriceCenter
 {
 
-    private static $_dirName = "temp";
-    private static $_fileName = "count.json";
+    private $_dirName = "temp";
+    private $_fileName = "count.json";
+    private $_dirTools = "";
+    private $_fileTools = "";
 
     /**
-     * Create Directory
-     *
-     * @return void
+     * Instantiate classes
      */
-    protected function createDir()
+    public function __construct()
     {
-        // Verify if directory exists
-        if (!is_dir(self::$_dirName)) {
-            mkdir(self::$_dirName, 0774, true);
-        }
+        $this->_dirTools = new DirectoryTools($this->_dirName);
+        $this->_fileTools = new FileTools($this->_dirName, $this->_fileName);
     }
 
     /**
@@ -53,48 +51,17 @@ class PriceCenter
      *
      * @return void
      */
-    public function writeQuantity($quntity)
+    private function _writeQuantity($quntity)
     {
         // Create a directory even if not exists
-        self::createDir(self::$_dirName);
-        $file = fopen(self::$_dirName . "/" . self::$_fileName, 'w');
+        $this->_dirTools->createDir($this->_dirName);
+        $file = fopen($this->_dirName . "/" . $this->_fileName, 'w');
         $message = array('quantity' => $quntity);
-        self::writeJsonFile($file, $message);
+        $this->_fileTools->writeJsonFile($file, $message);
     }
 
     /**
-     * Reads a Json file and decodes into a array
-     *
-     * @return void
-     */
-    public function jsonToArray()
-    {
-        $fileString = self::$_dirName . "/" . self::$_fileName;
-        if (file_exists($fileString)) {
-            $file = fopen($fileString, 'r');
-            $result = json_decode(fread($file, 1024));
-        } else {
-            $result = json_decode(json_encode(array("quantity" => 0)));
-        }
-        return $result;
-    }
-
-    /**
-     * Grava string no arquivo previamente aberto
-     *
-     * @param file   $file   [arquivo aberto com atriburo 'a']
-     * @param string $string x
-     *
-     * @return void
-     */
-    protected function writeJsonFile($file, $string)
-    {
-        fwrite($file, json_encode($string));
-        fclose($file);
-    }
-
-    /**
-     * Updates observers
+     * Updates observers from a data base reading
      *
      * @return void
      */
@@ -104,7 +71,8 @@ class PriceCenter
         $getStores = new ListStores();
 
         // Read the Json file
-        $quantity = self::jsonToArray();
+        $read = $this->_fileTools->readJsonToArray();
+        $quantity = $read != null ? $read : json_decode(json_encode(array("quantity" => 0)));
 
         // Count the number of itens of the array of classes
         $countProducts = count($getProductList->getListProducts());
@@ -120,10 +88,10 @@ class PriceCenter
                     $store->update($getProductList->getListProducts());
                 }
 
-                self::writeQuantity($countProducts);
+                $this->_writeQuantity($countProducts);
             } else {
 
-                echo "Nada atualizado";
+                echo "Nothing changed";
             }
 
         } catch (Exception $e) {

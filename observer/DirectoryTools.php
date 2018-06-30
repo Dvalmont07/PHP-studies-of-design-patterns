@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP version 7.1
- * ListProducts - Lists products
+ * DirectoryTools - Set of tools to handle directories
  *
  * @category  Class
- * @package   Observer
+ * @package   Tools
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -14,10 +14,10 @@
  */
 
 /**
- * ListProducts - Lists products
+ * DirectoryTools - Set of tools to handle directories
  *
  * @category  Class
- * @package   Observer
+ * @package   Tools
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -25,23 +25,31 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-
-class ListProducts
+class DirectoryTools
 {
+    private $_dirName = "";
+
     /**
-     * Retuns a list of products
+     * Sets the directory name
      *
-     * @return array
+     * @param string $dirName location
      */
-    public function getListProducts()
+    public function __construct($dirName)
     {
-        // This can be a database table
-        $products = array(
-            new Product("Coke", 5.0, 15),
-            new Product("Chips", 8.0, 25),
-            new Product("Cheese", 20.10, 11),
-            new Product("Cake", 15.16, 31),
-        );
-        return $products;
+        $this->_dirName = $dirName;
     }
+
+    /**
+     * Create Directory
+     *
+     * @return void
+     */
+    public function createDir()
+    {
+        // Verify if directory exists
+        if (!is_dir($this->_dirName)) {
+            mkdir($this->_dirName, 0774, true);
+        }
+    }
+
 }
