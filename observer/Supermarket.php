@@ -27,8 +27,18 @@ require_once 'IObserver.php';
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class Supermarket implements IObserver
+class Supermarket extends Store implements IObserver
 {
+    /**
+     * Set the class nmame
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+        $this->className = "Supermarket";
+    }
+
     /**
      * Use updated data
      *
@@ -38,7 +48,7 @@ class Supermarket implements IObserver
      */
     public function update($products)
     {
-        echo "<div><h1>Supermarket store: </h1>";
+        echo "<div><h2> $this->className: </h2>";
         foreach ($products as $value) {
             echo "<div>Product: " . $value->name . "<br/>";
             echo "Quantity: " . $value->quantity . "</div><br/>";

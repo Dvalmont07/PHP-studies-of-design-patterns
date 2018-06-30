@@ -29,11 +29,17 @@ require_once 'IObserver.php';
  */
 class PriceCenter
 {
+    /**
+     * Todo list
+     *
+     * @todo Update when inserts a subscriber
+     */
 
     private $_dirName = "temp";
     private $_fileName = "count.json";
     private $_dirTools = "";
     private $_fileTools = "";
+    private $_stores = array();
 
     /**
      * Instantiate classes
@@ -45,18 +51,71 @@ class PriceCenter
     }
 
     /**
-     * Grava mensagem de erro ocorrido
+     * Subscribe store to the listners list
      *
-     * @param array $quntity The number of itens
+     * @param class $class a product class to be pushed/add into the array
      *
      * @return void
      */
-    private function _writeQuantity($quntity)
+    public function subscribe($class)
+    {
+
+        try {
+            $key = array_search($class, $this->_stores);
+            if ($key === false) {
+                array_push($this->_stores, $class);
+                echo "The observer {$class->className} was successfully subscribed <br/>";
+            } else {
+                echo "The observer {$class->className} is already subscribed <br/>";
+            }
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+
+    }
+
+    /**
+     * Unubscribe store to the listners list
+     *
+     * @param class $class a product class to be pulled/removed from the array
+     *
+     * @return void
+     */
+    public function unsubscribe($class)
+    {
+
+        try {
+            $key = array_search($class, $this->_stores);
+            if ($key !== false) {
+                unset($this->_stores[$key]);
+                echo "The observer {$class->className} was unsubscribed <br/>";
+            } else {
+                echo "The observer {$class->className} can't be unsubscribed <br/>";
+            }
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+
+    }
+
+    /**
+     * Grava mensagem de erro ocorrido
+     *
+     * @param array $productsQuantity    The number of products
+     * @param array $subscribersQuantity The number of stores
+     *
+     * @return void
+     */
+    private function _writeQuantity($productsQuantity, $subscribersQuantity)
     {
         // Create a directory even if not exists
         $this->_dirTools->createDir($this->_dirName);
         $file = fopen($this->_dirName . "/" . $this->_fileName, 'w');
-        $message = array('quantity' => $quntity);
+
+        $message = array(
+            'productsQuantity' => $productsQuantity,
+            'subscribersQuantity' => $subscribersQuantity,
+        );
         $this->_fileTools->writeJsonFile($file, $message);
     }
 
@@ -67,35 +126,45 @@ class PriceCenter
      */
     public function updateObservers()
     {
-        $getProductList = new ListProducts();
-        $getStores = new ListStores();
+        $productList = new ProductList();
+        $getProductList = $productList->getProductList();
+        $countSubscribed = $this->countSubscribed();
 
         // Read the Json file
         $read = $this->_fileTools->readJsonToArray();
-        $quantity = $read != null ? $read : json_decode(json_encode(array("quantity" => 0)));
+        $quantity = $read != null ? $read : json_decode(json_encode(array('productsQuantity' => 0, 'subscribersQuantity' => 0)));
 
         // Count the number of itens of the array of classes
-        $countProducts = count($getProductList->getListProducts());
+        $countProducts = count($getProductList);
 
-        echo "Quantity of Products: " . $countProducts . "<br/>";
+        echo "<h1>Quantity of Products: " . $countProducts . "</h1>";
         try {
 
             // If quantity changes
-            if ($countProducts != $quantity->quantity) {
+            if ($countProducts != $quantity->productsQuantity || $countSubscribed != $quantity->subscribersQuantity) {
 
-                foreach ($getStores->getListStores() as $store) {
+                foreach ($this->_stores as $store) {
 
-                    $store->update($getProductList->getListProducts());
+                    $store->update($getProductList);
                 }
 
-                $this->_writeQuantity($countProducts);
+                $this->_writeQuantity($countProducts, $countSubscribed);
             } else {
 
                 echo "Nothing changed";
             }
-
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    /**
+     * Returns the number of subscribed stores
+     *
+     * @return int
+     */
+    public function countSubscribed()
+    {
+        return count($this->_stores);
     }
 }

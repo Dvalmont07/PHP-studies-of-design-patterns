@@ -32,20 +32,23 @@ class Product
     public $name;
     public $price;
     public $quantity;
+    public $descrption;
 
     /**
      * Undocumented function
      *
-     * @param string $name     product name
-     * @param float  $price    product price
-     * @param int    $quantity product quantity
+     * @param string $name        product name
+     * @param float  $price       product price
+     * @param int    $quantity    product quantity
+     * @param string $description product description
      *
      * @return void
      */
-    public function __construct($name, $price, $quantity)
+    public function __construct($name, $price, $quantity, $description)
     {
         $this->name = $name;
         $this->price = $price;
         $this->quantity = $quantity;
+        $this->descrption = $description;
     }
 }

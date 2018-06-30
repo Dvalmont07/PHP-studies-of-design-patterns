@@ -26,21 +26,21 @@
  * @since     1.0.0
  */
 
-class ListProducts
+class ProductList
 {
     /**
      * Retuns a list of products
      *
      * @return array
      */
-    public function getListProducts()
+    public function getProductList()
     {
         // This can be a database table
         $products = array(
-            new Product("Coke", 5.0, 15),
-            new Product("Chips", 8.0, 25),
-            new Product("Cheese", 20.10, 11),
-            new Product("Cake", 15.16, 31),
+            new Product("Coke", 5.0, 15, "Ice cold"),
+            new Product("Chips", 8.0, 25, "Nice & Crisp"),
+            new Product("Cheese", 20.10, 11, "Cream Taste"),
+            new Product("Banana", 15.16, 31, "The yellow one"),
         );
         return $products;
     }
