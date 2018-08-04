@@ -23,7 +23,7 @@
  * @since   1.0.0
  * @return  void
  */
-function __autoload($class)
+function myAautoload($class)
 {
     $class = $class . ".php";
 
@@ -33,3 +33,5 @@ function __autoload($class)
     }
     include_once "{$class}";
 }
+
+spl_autoload_register("myAautoload");

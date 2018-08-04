@@ -14,7 +14,7 @@
  */
 
 require_once 'Config.php';
-require_once 'autoload.php';
+require_once '../autoload.php';
 
 $priceCenter = new PriceCenter();
 
