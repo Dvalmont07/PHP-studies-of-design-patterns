@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * concretePizza - A concrete class of IPizza
+ * MozzarelaDecorator - Class that uses decorator
  * 
  * @category  Class
  * @package   Decorator
@@ -14,8 +14,7 @@
  */
 
 /**
- * PHP version 7.2.4
- * concretePizza - A concrete class of IPizza
+ * MozzarelaDecorator - Class that uses decorator
  * 
  * @category  Class
  * @package   Decorator
@@ -26,16 +25,31 @@
  * @since     1.0.0
  */
 
-class ConcretePizza implements IPizza
+class MozzarelaDecorator extends Toppings
 {
+    
+    private $_pizza;
+    
     /**
-     * Get description
+     * Construct
      * 
-     * @return string 
+     * @param class $pizza 
+     * 
+     * @return float 
+     */
+    public function __construct(IPizza $pizza)
+    {        
+        $this->_pizza = $pizza;        
+    }   
+
+    /**
+     * Get Description
+     * 
+     * @return float 
      */
     public function getDescription()
     {
-        return "This is a base pizza <br/>";
+        return $this->_pizza->getDescription() . " Adding Moz Topping <br/>";
     }
     
     /**
@@ -45,7 +59,7 @@ class ConcretePizza implements IPizza
      */
     public function getCost()
     {
-        return 10.00;
+        return  $this->_pizza->getCost() + .50;
     }
     
 }

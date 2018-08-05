@@ -25,8 +25,6 @@ $moz = new TomatoTopping($moz);
 $moz = new SouceTopping($moz);
 
 
-
-
 echo "<h1>Showing Pizzas</h1>";
 
 echo "<h2>Get Description:</h2> {$moz->getDescription()} <br/>";
