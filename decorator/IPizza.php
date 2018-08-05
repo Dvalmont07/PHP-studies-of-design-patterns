@@ -39,6 +39,4 @@ interface IPizza
      * @return float 
      */
     public function getCost();
-
-
 }

@@ -37,10 +37,8 @@ class TomatoDecorator extends Toppings
      * @return float 
      */
     public function __construct(IPizza $pizza)
-    {
-        
-        $this->_pizza = $pizza;
-        
+    {        
+        $this->_pizza = $pizza;        
     }   
 
     /**
@@ -60,7 +58,6 @@ class TomatoDecorator extends Toppings
      */
     public function getCost()
     {
-        
         return  $this->_pizza->getCost() + 2;
     }
     

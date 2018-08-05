@@ -18,11 +18,11 @@ require_once '../autoload.php';
 
 $pizza = new ConcretePizza();
 
-$moz = new MozzarelaTopping($pizza);
-$moz = new MozzarelaTopping($moz);
-$moz = new TomatoTopping($moz);
-$moz = new TomatoTopping($moz);
-$moz = new SouceTopping($moz);
+$moz = new MozzarelaDecorator($pizza);
+$moz = new MozzarelaDecorator($moz);
+$moz = new TomatoDecorator($moz);
+$moz = new TomatoDecorator($moz);
+$moz = new SouceDecorator($moz);
 
 
 echo "<h1>Showing Pizzas</h1>";
