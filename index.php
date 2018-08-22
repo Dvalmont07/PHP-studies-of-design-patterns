@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7.2.4
  * Index - Root file for Decorator Pattern
@@ -24,28 +25,22 @@
 
 <?php 
 
+/**
+ * Reads de directory
+ */
 $dirScan = scandir(__DIR__);
 
-$dirList = array();
-
-foreach($dirScan as $value) 
-{
-    if(is_dir($value) && strpos($value, ".") === false){
-        array_push($dirList, $value);
-    }
-}
-
-// var_dump($dirList);
 ?>
 
 <body>
-	<h1>Lista de padrões</h1>
-	<!-- @todo create a directory's list to write dinamicaly -->
-
+	<h1>Patterns List</h1>
+	
 	<?php
-foreach ($dirList as $value) 
-{ 
-    echo "<h2><a href='{$value}/'>$value</a></h2>";    
+foreach ($dirScan as $value) {
+	if (is_dir($value) && strpos($value, ".") === false) {
+		echo "<h2><a href='{$value}/'>$value</a></h2>";
+	}
+
 }
 ?>
 
