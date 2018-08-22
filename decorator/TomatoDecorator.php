@@ -24,7 +24,7 @@
  * @link      "http://www.seoseedrank.com.br/sobre"
  * @since     1.0.0
  */
-class TomatoDecorator extends Toppings
+class TomatoDecorator extends ToppingsDecorator
 {
     
     private $_pizza;

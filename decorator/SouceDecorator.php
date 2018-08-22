@@ -25,7 +25,7 @@
  * @since     1.0.0
  */
 
-class SouceDecorator extends Toppings
+class SouceDecorator extends ToppingsDecorator
 {
     private $_pizza;
     
@@ -48,7 +48,7 @@ class SouceDecorator extends Toppings
      */
     public function getDescription()
     {
-        return $this->_pizza->getDescription() . " Adding Souze Topping <br/>";
+        return $this->_pizza->getDescription() . " Adding Souce Topping <br/>";
     }
     
     /**

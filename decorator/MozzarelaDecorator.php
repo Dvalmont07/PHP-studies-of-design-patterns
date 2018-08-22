@@ -25,7 +25,7 @@
  * @since     1.0.0
  */
 
-class MozzarelaDecorator extends Toppings
+class MozzarelaDecorator extends ToppingsDecorator
 {
     
     private $_pizza;

@@ -23,6 +23,7 @@ $moz = new MozzarelaDecorator($moz);
 $moz = new TomatoDecorator($moz);
 $moz = new TomatoDecorator($moz);
 $moz = new SouceDecorator($moz);
+$moz = new SouceDecorator($moz);
 
 
 echo "<h1>Showing Pizzas</h1>";
