@@ -30,5 +30,7 @@ echo "<h1>Showing Pizzas</h1>";
 
 echo "<h2>Get Description:</h2> {$moz->getDescription()} <br/>";
 echo "Get Cost: {$moz->getCost()}  <br/>";
+?>
+<br/><a href="../">Back</a>
 
 

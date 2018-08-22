@@ -20,4 +20,7 @@ $priceCenter = new PriceCenter();
 
 $priceCenter->updateObservers();
 
+?>
+<br/><a href="../">Back</a>
+
 
