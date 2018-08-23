@@ -4,5 +4,5 @@
     <h2>Observer</h2>
     <h2>Decorator</h2>
     <h2>Factory</h2>
-    <p>A defines a interface to create objects and let the subclasses to decide wich classes to instantiate</p>
+    <p>Defines a interface to create objects and let the subclasses to decide wich classes to instantiate</p>
 
