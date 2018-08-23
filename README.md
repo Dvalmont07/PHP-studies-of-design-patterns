@@ -1,4 +1,3 @@
-{::nomarkdown}
     <h1>Design Pattern studies</h1>
 
     <h2>Strategy</h2>
