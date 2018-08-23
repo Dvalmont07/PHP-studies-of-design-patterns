@@ -4,9 +4,14 @@ class EnemyFactory
 {
     private $_enemyShip;
 
+    /**
+     * General method to create classes.
+     *
+     * @return class EnemyShip
+     */
     public function makeEnemyShip()
     {
-        $rndmNum = $this->radmomNumber();
+        $rndmNum = $this->_radmomNumber();
         var_dump($rndmNum);
         if ($rndmNum === 1) {
             $this->_enemyShip = new UFOEnemyShip();
@@ -24,7 +29,7 @@ class EnemyFactory
      *
      * @return int
      */
-    private function radmomNumber()
+    private function _radmomNumber()
     {
         return $randomNumber = rand(1, 3);
     }

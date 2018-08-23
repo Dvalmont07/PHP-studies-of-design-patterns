@@ -4,32 +4,33 @@
  * PHP version 7.2.4
  * Enemy - Interface class.
  *
- * @category  Abstract
+ * @category Abstract
  *
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
  *
- * @see      "http://www.seoseedrank.com.br/sobre"
- * @since     1.0.0
+ * @see   "http://www.seoseedrank.com.br/sobre"
+ * @since 1.0.0
  */
 
 /**
  * Enemy - Interface class.
  *
- * @category  Abstract
+ * @category Abstract
  *
  * @author    Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @copyright 2018 Danilo Lobo Matos / Dvalmont07
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
  *
- * @see      "http://www.seoseedrank.com.br/sobre"
- * @since     1.0.0
+ * @see   "http://www.seoseedrank.com.br/sobre"
+ * @since 1.0.0
  */
 abstract class EnemyShip
 {
     private $_name;
     private $_amtDamage;
+    private $_speed;
 
     public function setName($name)
     {
@@ -51,6 +52,16 @@ abstract class EnemyShip
         return $this->_amtDamage;
     }
 
+    public function setSpeed($speed)
+    {
+        $this->_speed = $speed;
+    }
+
+    public function getSpeed()
+    {
+        return $this->_speed;
+    }
+
     public function followHeroShip()
     {
         echo "{$this->getName()} follows the hero <br/>";
@@ -63,6 +74,6 @@ abstract class EnemyShip
 
     public function enemyShipShoots()
     {
-        echo  "{$this->getName()} shoots the hero and does {$this->getDamage()} of damage <br/>";
+        echo  "{$this->getName()} shoots the hero and does {$this->getDamage()} of damage at {$this->getSpeed()} Km/h <br/>";
     }
 }

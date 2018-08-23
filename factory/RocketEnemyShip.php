@@ -6,5 +6,6 @@ class RocketEnemyShip extends EnemyShip
     {
         $this->setName('Rocket Ship');
         $this->setDamage('20');
+        $this->setSpeed('100');
     }
 }

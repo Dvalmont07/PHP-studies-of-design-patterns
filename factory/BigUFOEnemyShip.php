@@ -6,5 +6,6 @@ class BigUFOEnemyShip extends EnemyShip
     {
         $this->setName('Big UFO');
         $this->setDamage('30');
+        $this->setSpeed('400');
     }
 }
