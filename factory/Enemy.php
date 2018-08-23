@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7.2.4
  * Enemy - Interface class
@@ -24,14 +25,35 @@
  * @since     1.0.0
  */
 
- abstract class IEnemy{
+abstract class IEnemy
+{
     protected $name;
-    protected $damege;
+    protected $amtDamege;
 
-    protected function setName(String $n){
-        $name = $n;
+    function followHeroShip()
+    {
+        return "Enemy follows the hero";
+    }
+
+    function displayEnemyShip()
+    {
+        return "Enemy appears on screen";
+    }
+
+    function enemyShipShoots()
+    {
+        return "Enemy shoots the hero";
+    }
+
+    function setDamage(Float $damage)
+    {
+        $this->$damage = $damage;
+    }
+
+    function getDamage()
+    {
+        return $this->$damage;
     }
 
 
-    
- }
+}
