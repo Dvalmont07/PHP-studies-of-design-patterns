@@ -1,8 +1,0 @@
-#Design Pattern studies
-
-* Strategy
-* Observer
-* Decorator
-
-* <h2>Factory</h2> 
-    A defines a interface to create objects and let the subclasses to decide wich classes to instantiate
