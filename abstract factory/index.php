@@ -33,6 +33,13 @@
 require_once '../config.php';
 require_once '../autoload.php';
 
+$sandFactory = new SandEnemyFactory();
+$enemy = $sandFactory->createEnemy('cat');
+$enemy->executeMoves();
+
+$enemy = $sandFactory->createEnemy('bear');
+$enemy->executeMoves();
+
 ?>
 
 <br/><a href="../">Back</a>

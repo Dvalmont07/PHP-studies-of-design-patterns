@@ -30,6 +30,7 @@ abstract class Enemy
     private $_name;
     private $_atack;
     private $_defense;
+    private $_speed;
     private $_talent;
 
     /**
@@ -102,5 +103,58 @@ abstract class Enemy
         $this->_defense = $_defense;
 
         return $this;
+    }
+
+    /**
+     * Display enemy on the screen.
+     *
+     * @return string
+     */
+    public function displayEnemy()
+    {
+        echo "{$this->getName()} is showm on the screen <br/>";
+    }
+
+    /**
+     * Get the value of _speed.
+     *
+     * @return string
+     */
+    public function getSpeed()
+    {
+        return $this->_speed;
+    }
+
+    /**
+     * Set the value of _speed.
+     *
+     * @param string $_speed x
+     *
+     * @return string
+     */
+    public function setSpeed($_speed)
+    {
+        $this->_speed = $_speed;
+
+        return $this;
+    }
+
+    /**
+     * The enemy atacks the hero.
+     *
+     * @return string
+     */
+    public function toAtack()
+    {
+        echo "{$this->getName()} atacks hero with {$this->getAtack()} of power and {$this->getSpeed()} of speed <br/>";
+    }
+
+    /**
+     * Undocumented function.
+     */
+    public function executeMoves()
+    {
+        $this->displayEnemy();
+        $this->toAtack();
     }
 }
