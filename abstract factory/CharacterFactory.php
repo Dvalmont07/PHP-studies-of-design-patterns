@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * EnemyFactory.
+ * ICharacterFactory.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * SandEnemyFactory - The class the creates sand enemies.
+ * ICharacterFactory - The class the creates sand characters.
  *
  * @category Interface
  *
@@ -25,7 +25,7 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-interface IEnemyFactory
+abstract class CharacterFactory
 {
     /**
      * Creates enemies.
@@ -34,5 +34,5 @@ interface IEnemyFactory
      *
      * @return class
      */
-    public function createEnemy($string);
+    abstract public function createCharacter($string);
 }

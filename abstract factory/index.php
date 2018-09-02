@@ -30,14 +30,19 @@
  * @see   "http://www.seoseedrank.com.br/sobre"
  * @since 1.0.0
  */
-require_once '../config.php';
+require_once 'config.php';
 require_once '../autoload.php';
 
-$sandFactory = new SandEnemyFactory();
-$enemy = $sandFactory->createEnemy('cat');
+$environment = 'fire';
+
+$sandFactory = new HumanEnemyFactory();
+$enemy = $sandFactory->createCharacter('bob');
+
+$enemy->setEnvironment($environment);
 $enemy->executeMoves();
 
-$enemy = $sandFactory->createEnemy('bear');
+$enemy = $sandFactory->createCharacter('leno');
+$enemy->setEnvironment($environment);
 $enemy->executeMoves();
 
 ?>

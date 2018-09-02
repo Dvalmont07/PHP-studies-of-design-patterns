@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * SandEnemyFactory - The class the creates sand enemies.
+ * HumanEnemyFactory - The class the creates sand enemies.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * SandEnemyFactory - The class the creates sand enemies.
+ * HumanEnemyFactory - The class the creates sand enemies.
  *
  * @category Class
  *
@@ -25,27 +25,23 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SandEnemyFactory implements IEnemyFactory
+class HumanEnemyFactory extends CharacterFactory
 {
-    public $enemy;
+    ///private $_enemy;
 
     /**
-     * Creates enemies.
+     * Creates Human enemies.
      *
      * @param string $string the type of the enemy
      *
      * @return class
      */
-    public function createEnemy($string)
+    public function createCharacter($string)
     {
-        if ($string == 'bird') {
-            $enemy = new SandBirdEnemy();
-        } elseif ($string == 'cat') {
-            $enemy = new SandCatEnemy();
-        } elseif ($string == 'bear') {
-            $enemy = new SandBearEnemy();
+        if ($string == 'bob') {
+            return       $this->_enemy = new BobHumanEnemy();
+        } elseif ($string == 'leno') {
+            return   $this->_enemy = new LenoHumanEnemy();
         }
-
-        return $enemy;
     }
 }
