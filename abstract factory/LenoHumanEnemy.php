@@ -32,8 +32,8 @@ class LenoHumanEnemy extends HumanEnemy
      */
     public function __construct()
     {
-        $strngths = array('water');
-        $weaknesses = array('earth');
+        $strngths = array(ElementalEnum::$water);
+        $weaknesses = array(ElementalEnum::$earth);
         $this->setName('Leno');
         $this->setDescription('The killer');
         $this->setPower(50.1);

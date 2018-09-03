@@ -25,21 +25,16 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class Character
+abstract class Character extends GeneralProperties
 {
-    private $_name;
+    private $_screenText;
     private $_power;
     private $_defense;
     private $_speed;
     private $_talent;
-
-    private $_description;
     private $_energy;
     private $_dextority;
     private $_alignment;
-    private $_strengths;
-    private $_weaknesses;
-    private $_environment;
 
     /**
      * The enemy atacks the hero.
@@ -49,39 +44,20 @@ abstract class Character
     public function atack()
     {
         $sumAtack = $this->getPower() + $this->checkEnvironment();
-        echo "{$this->getName()} atacks hero with {$sumAtack} of power and {$this->getSpeed()} of speed <br/>";
+        $this->setScreenText("&emsp;{$this->getName()} atacks hero with: {$sumAtack} of power and {$this->getSpeed()} of speed <br/>");
+
+        echo $this->getScreenText();
     }
 
-    /**
-     * Check if the environment is the properly type and aply pennalyties or bonuses.
-     *
-     * @return float
-     */
-    public function checkEnvironment()
-    {
-        $result = 0;
-        if (in_array($this->_environment, $this->getWeaknesses())) {
-            $result -= ENVIRONMENT_MODIFIER;
-        } elseif (in_array($this->_environment, $this->getStrengths())) {
-            $result += ENVIRONMENT_MODIFIER;
-        }
-
-        return $result;
-    }
-
-    /**
-     * Undocumented function.
-     *
-     * @param string $_environment x
-     *
-     * @return string
-     */
-    public function setEnvironment($_environment)
-    {
-        $this->_environment = $_environment;
-
-        return $this;
-    }
+    // /**
+    //  * Undocumented function.
+    //  */
+    // public function checkWeapon($class)
+    // {
+    //     if ($this instanceof Weapon) {
+    //         $this->_screenText .= "{$class->getName()}<br/>";
+    //     }
+    // }
 
     /**
      * Undocumented function.
@@ -90,30 +66,6 @@ abstract class Character
     {
         $this->displayEnemy();
         $this->atack();
-    }
-
-    /**
-     * Set the value of $_name.
-     *
-     * @param string $_name x
-     *
-     * @return string
-     */
-    public function setName($_name)
-    {
-        $this->_name = $_name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of _name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->_name;
     }
 
     /**
@@ -131,7 +83,7 @@ abstract class Character
     }
 
     /**
-     * Set the value of $_atack.
+     * Set the value of $_power.
      *
      * @return string
      */
@@ -171,7 +123,10 @@ abstract class Character
      */
     public function displayEnemy()
     {
-        echo "{$this->getName()} is showm on the screen <br/>";
+        echo "<h1>{$this->getName()} is showm on the screen </h1>";
+        echo "&emsp;Base power: {$this->getPower()}<br/>";
+        echo "&emsp;Base defense: {$this->getDefense()}<br/>";
+        echo "&emsp;Base speed: {$this->getSpeed()}<br/>";
     }
 
     /**
@@ -201,30 +156,6 @@ abstract class Character
     /**
      * Get the value of _description.
      *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->_description;
-    }
-
-    /**
-     * Set the value of _description.
-     *
-     * @param string $_description description of the character
-     *
-     * @return string
-     */
-    public function setDescription($_description)
-    {
-        $this->_description = $_description;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of _description.
-     *
      * @return float
      */
     public function getEnergy()
@@ -242,54 +173,6 @@ abstract class Character
     public function setEnergy($_energy)
     {
         $this->_energy = $_energy;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of _description.
-     *
-     * @return array
-     */
-    public function getStrengths()
-    {
-        return $this->_strengths;
-    }
-
-    /**
-     * Set the value of _description.
-     *
-     * @param array $_strengths array of elements
-     *
-     * @return array
-     */
-    public function setStrengths($_strengths)
-    {
-        $this->_strengths = $_strengths;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of _description.
-     *
-     * @return array
-     */
-    public function getWeaknesses()
-    {
-        return $this->_weaknesses;
-    }
-
-    /**
-     * Set the value of _description.
-     *
-     * @param array $_weaknesses array of elements
-     *
-     * @return array
-     */
-    public function setWeaknesses($_weaknesses)
-    {
-        $this->_weaknesses = $_weaknesses;
 
         return $this;
     }
@@ -338,6 +221,30 @@ abstract class Character
     public function setAlignment($_alignment)
     {
         $this->_alignment = $_alignment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of _screenText.
+     *
+     * @return string
+     */
+    public function getScreenText()
+    {
+        return $this->_screenText;
+    }
+
+    /**
+     * Set the value of _screenText.
+     *
+     * @param string $_screenText this shows if the characters is good, evil
+     *
+     * @return string
+     */
+    public function setScreenText($_screenText)
+    {
+        $this->_screenText .= $_screenText;
 
         return $this;
     }

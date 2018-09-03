@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * HumanEnemyFactory - The class the creates sand enemies.
+ * WeaponFactory - The class the creates sand enemies.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * HumanEnemyFactory - The class the creates sand enemies.
+ * WeaponFactory - The class the creates sand enemies.
  *
  * @category Class
  *
@@ -25,7 +25,7 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class HumanEnemyFactory implements IFactory
+class WeaponFactory implements IFactory
 {
     /**
      * Creates Human enemies.
@@ -36,10 +36,10 @@ abstract class HumanEnemyFactory implements IFactory
      */
     public static function createFactory($string)
     {
-        if ($string == HumanEnemyEnum::$bob) {
-            return new BobHumanEnemy();
-        } elseif ($string == HumanEnemyEnum::$leno) {
-            return new LenoHumanEnemy();
+        if ($string == WeaponsEnum::$katanaSword) {
+            return new KatanaWeapon();
+        } elseif ($string == WeaponsEnum::$thunderBow) {
+            return new BowWeapon();
         }
     }
 }

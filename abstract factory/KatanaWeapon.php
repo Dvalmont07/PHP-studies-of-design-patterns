@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * SandBearEnemy - Subclass of Enemy.
+ * KatanaWeapon - Subclass of Weapon.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * The enemy: Sand bird.
+ * KatanaWeapon - Subclass of Weapon.
  *
  * @category Class
  *
@@ -25,15 +25,20 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SandBearEnemy extends Enemy
+class KatanaWeapon extends Weapon
 {
     /**
      * Undocumented function.
      */
     public function __construct()
     {
-        $this->setName('Sand Bear');
-        $this->setAtack(50);
-        $this->setSpeed(10);
+        $this->setName('Katana Sowrd');
+        $this->setDescription('An ancient mistical sorwd');
+        $this->setPower(2.5);
+        $this->setRange(1);
+        $this->setReach(ReachEnum::$ground);
+        $this->setWeaknesses(ElementalEnum::$neutral);
+        $this->setStrengths(ElementalEnum::$neutral);
+        $this->setEnvironment(ElementalEnum::$neutral);
     }
 }

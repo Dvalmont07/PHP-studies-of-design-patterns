@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * ICharacterFactory.
+ * WeaponsEnum - Lists all Weapons.
  *
  * @category Abstract_Factory
  *
@@ -16,23 +16,17 @@
  */
 
 /**
- * ICharacterFactory - The class the creates sand characters.
+ * WeaponsEnum - Lists all Weapons.
  *
- * @category Interface
+ * @category Enum
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class CharacterFactory
+abstract class WeaponsEnum
 {
-    /**
-     * Creates enemies.
-     *
-     * @param string $string the type of enemy
-     *
-     * @return class
-     */
-    abstract public function createCharacter($string);
+    public static $katanaSword = 'katanaSword';
+    public static $thunderBow = 'thunderBow';
 }

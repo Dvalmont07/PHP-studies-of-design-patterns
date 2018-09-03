@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * SandCatEnemy - Subclass of Enemy.
+ * IHasWeapon - interface to compose the weapon use.
  *
  * @category Abstract_Factory
  *
@@ -16,24 +16,24 @@
  */
 
 /**
- * The enemy: Sand cat.
+ * IHasWeapon - interface to compose the weapon use.
  *
- * @category Class
+ * @category Interface
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SandCatEnemy extends Enemy
+interface IHasWeapon
 {
     /**
-     * Undocumented function.
+     * Character can equip weapon.
      */
-    public function __construct()
-    {
-        $this->setName('Sand Cat');
-        $this->setAtack(10);
-        $this->setSpeed(20);
-    }
+    public function equipWeapon();
+
+    /**
+     * Character can unequip weapon.
+     */
+    public function unEquipWeapon();
 }

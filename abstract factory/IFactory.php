@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * SandBirdEnemy - Subclass of Enemy.
+ * ICharacterFactory.
  *
  * @category Abstract_Factory
  *
@@ -16,24 +16,23 @@
  */
 
 /**
- * The enemy: Sand bird.
+ * ICharacterFactory - The class the creates sand characters.
  *
- * @category Class
+ * @category Interface
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SandBirdEnemy extends Enemy
+interface IFactory
 {
     /**
-     * Undocumented function.
+     * Creates enemies.
+     *
+     * @param string $string the type of enemy
+     *
+     * @return class
      */
-    public function __construct()
-    {
-        $this->setName('Sand Bird');
-        $this->setAtack(10);
-        $this->setSpeed(40);
-    }
+    public static function createFactory($string);
 }

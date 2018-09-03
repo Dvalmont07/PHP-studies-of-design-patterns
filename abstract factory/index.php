@@ -33,15 +33,14 @@
 require_once 'config.php';
 require_once '../autoload.php';
 
-$environment = 'fire';
+$environment = ElementalEnum::$fire;
 
-$sandFactory = new HumanEnemyFactory();
-$enemy = $sandFactory->createCharacter('bob');
+$enemy = HumanEnemyFactory::createFactory(HumanEnemyEnum::$bob);
 
 $enemy->setEnvironment($environment);
 $enemy->executeMoves();
 
-$enemy = $sandFactory->createCharacter('leno');
+$enemy = HumanEnemyFactory::createFactory(HumanEnemyEnum::$leno);
 $enemy->setEnvironment($environment);
 $enemy->executeMoves();
 

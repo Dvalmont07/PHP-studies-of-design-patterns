@@ -25,24 +25,45 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class BobHumanEnemy extends HumanEnemy
+class BobHumanEnemy extends HumanEnemy implements IHasWeapon
 {
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $strngths = array('fire');
-        $weaknesses = array('wather');
+        $power = 10.1;
+        $strngths = array(ElementalEnum::$fire);
+        $weaknesses = array(ElementalEnum::$water);
         $this->setName('Bob');
         $this->setDescription('A mad lad');
-        $this->setPower(10.1);
+        $this->setPower($power);
         $this->setSpeed(45.1);
-        $this->setDefense(10.1);
+        $this->setDefense(11.1);
         $this->setEnergy(50.1);
         $this->setDextority(30.1);
         $this->setAlignment('evil');
         $this->setStrengths($strngths);
         $this->setWeaknesses($weaknesses);
+        $power += $this->equipWeapon()->getPower();
+    }
+
+    /**
+     * Character can equip weapon.
+     */
+    public function equipWeapon()
+    {
+        $weapon = WeaponFactory::createFactory(WeaponsEnum::$katanaSword);
+
+        $this->setScreenText("&emsp;{$this->getName()} has {$weapon->getName()}, {$weapon->getDescription()} :: pwr {$weapon->getPower()} <br/>");
+
+        return $weapon;
+    }
+
+    /**
+     * Character can unequip weapon.
+     */
+    public function unEquipWeapon()
+    {
     }
 }
