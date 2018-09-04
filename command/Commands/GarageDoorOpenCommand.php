@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PHP version 7.2.4
  * GarageDoorOpenCommand - A class tha executes commands.
