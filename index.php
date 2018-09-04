@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PHP version 7.2.4
  * Index - Root file for Decorator Pattern
@@ -43,7 +42,5 @@ foreach ($dirScan as $value) {
 
 }
 ?>
-
 </body>
-
 </html>
