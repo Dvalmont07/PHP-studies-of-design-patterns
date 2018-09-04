@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * WeaponFactory - The class the creates sand enemies.
+ * Armor - Interface that set Armors.
  *
  * @category Abstract_Factory
  *
@@ -15,37 +15,45 @@
  * @since 1.0.0
  */
 
-namespace Factories;
+namespace Armors;
 
-use Enums\WeaponsEnum;
-use Weapons\KatanaWeapon;
-use Weapons\BowWeapon;
+use Utilities\GeneralProperties;
 
 /**
- * WeaponFactory - The class the creates sand enemies.
+ * Armor - Interface that set Armors.
  *
- * @category Class
+ * @category Armors
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class WeaponFactory implements IFactory
+abstract class Armor extends GeneralProperties
 {
+    private $_defense;
+
     /**
-     * Creates Human enemies.
+     * Set the value of $_defense.
      *
-     * @param string $string the type of the enemy
-     *
-     * @return class
+     * @return float
      */
-    public static function createFactory($string)
+    public function getDefense()
     {
-        if ($string == WeaponsEnum::$katanaSword) {
-            return new KatanaWeapon();
-        } elseif ($string == WeaponsEnum::$thunderBow) {
-            return new BowWeapon();
-        }
+        return $this->_defense;
+    }
+
+    /**
+     * Set the value of $_defense.
+     *
+     * @param float $_defense x
+     *
+     * @return float
+     */
+    public function setDefense($_defense)
+    {
+        $this->_defense += $_defense;
+
+        return $this;
     }
 }

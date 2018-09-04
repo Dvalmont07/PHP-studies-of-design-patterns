@@ -17,7 +17,10 @@
 
 namespace Characters;
 
+use Armors\IHasArmor;
 use Enums\ElementalEnum;
+use Enums\ArmorsEnum;
+use Factories\ArmorFactory;
 
 /**
  * LenoHumanEnemy - subclass of Character that creates human enemies.
@@ -29,7 +32,7 @@ use Enums\ElementalEnum;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class LenoHumanEnemy extends HumanEnemy
+class LenoHumanEnemy extends HumanEnemy implements IHasArmor
 {
     /**
      * Constructor.
@@ -48,5 +51,22 @@ class LenoHumanEnemy extends HumanEnemy
         $this->setAlignment('evil');
         $this->setStrengths($strngths);
         $this->setWeaknesses($weaknesses);
+
+        //equips
+        $this->equipArmor();
+    }
+
+    /**
+     * Character can equip armor.
+     */
+    public function equipArmor()
+    {
+        $result = ArmorFactory::createFactory(ArmorsEnum::$iceArmor);
+
+        $this->setScreenText("&emsp;{$this->getName()} has {$result->getName()}, {$result->getDescription()} :: defense {$result->getDefense()} <br/>");
+
+        $this->setDefense($result->getDefense());
+
+        return $result;
     }
 }

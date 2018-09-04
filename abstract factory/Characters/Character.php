@@ -105,7 +105,7 @@ abstract class Character extends GeneralProperties
      */
     public function setDefense($_defense)
     {
-        $this->_defense = $_defense;
+        $this->_defense += $_defense;
 
         return $this;
     }
@@ -117,7 +117,7 @@ abstract class Character extends GeneralProperties
      */
     public function displayEnemy()
     {
-        echo "<h1>{$this->getName()} is showm on the screen </h1>";
+        echo "<h1>{$this->getName()}, {$this->getDescription()}, is showm on the screen </h1>";
         echo "&emsp;Base power: {$this->getPower()}<br/>";
         echo "&emsp;Base defense: {$this->getDefense()}<br/>";
         echo "&emsp;Base speed: {$this->getSpeed()}<br/>";

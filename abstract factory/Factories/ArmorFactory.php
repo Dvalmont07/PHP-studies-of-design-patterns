@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * WeaponFactory - The class the creates sand enemies.
+ * ArmorFactory - The class the creates armors.
  *
  * @category Abstract_Factory
  *
@@ -17,21 +17,21 @@
 
 namespace Factories;
 
-use Enums\WeaponsEnum;
-use Weapons\KatanaWeapon;
-use Weapons\BowWeapon;
+use Enums\ArmorsEnum;
+use Armors\FireArmor;
+use Armors\IceArmor;
 
 /**
- * WeaponFactory - The class the creates sand enemies.
+ * ArmorFactory - The class the creates armors.
  *
- * @category Class
+ * @category Factories
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class WeaponFactory implements IFactory
+class ArmorFactory implements IFactory
 {
     /**
      * Creates Human enemies.
@@ -42,10 +42,10 @@ class WeaponFactory implements IFactory
      */
     public static function createFactory($string)
     {
-        if ($string == WeaponsEnum::$katanaSword) {
-            return new KatanaWeapon();
-        } elseif ($string == WeaponsEnum::$thunderBow) {
-            return new BowWeapon();
+        if ($string == ArmorsEnum::$fireArmor) {
+            return new FireArmor();
+        } elseif ($string == ArmorsEnum::$iceArmor) {
+            return new IceArmor();
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * WeaponFactory - The class the creates sand enemies.
+ * FireArmor - Subclass of Armor.
  *
  * @category Abstract_Factory
  *
@@ -15,14 +15,12 @@
  * @since 1.0.0
  */
 
-namespace Factories;
+namespace Armors;
 
-use Enums\WeaponsEnum;
-use Weapons\KatanaWeapon;
-use Weapons\BowWeapon;
+use Enums\ElementalEnum;
 
 /**
- * WeaponFactory - The class the creates sand enemies.
+ * FireArmor - Subclass of armor.
  *
  * @category Class
  *
@@ -31,21 +29,17 @@ use Weapons\BowWeapon;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class WeaponFactory implements IFactory
+class FireArmor extends Armor
 {
     /**
-     * Creates Human enemies.
-     *
-     * @param string $string the type of the enemy
-     *
-     * @return class
+     * Undocumented function.
      */
-    public static function createFactory($string)
+    public function __construct()
     {
-        if ($string == WeaponsEnum::$katanaSword) {
-            return new KatanaWeapon();
-        } elseif ($string == WeaponsEnum::$thunderBow) {
-            return new BowWeapon();
-        }
+        $this->setName('The Magma Armor');
+        $this->setDescription('A light armor resistent against fire');
+        $this->setDefense(2);
+        $this->setWeaknesses(ElementalEnum::$water);
+        $this->setStrengths(ElementalEnum::$fire);
     }
 }

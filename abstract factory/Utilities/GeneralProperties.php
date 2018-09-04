@@ -45,8 +45,10 @@ abstract class GeneralProperties
     {
         $result = 0;
         if (in_array($this->_environment, $this->getWeaknesses())) {
+            echo '&emsp;Lose -'.ENVIRONMENT_MODIFIER." because of <strong>{$this->_environment}</strong> envirionment<br/>";
             $result -= ENVIRONMENT_MODIFIER;
         } elseif (in_array($this->_environment, $this->getStrengths())) {
+            echo '&emsp;Gain +'.ENVIRONMENT_MODIFIER." because of <strong>{$this->_environment}</strong> envirionment<br/>";
             $result += ENVIRONMENT_MODIFIER;
         }
 

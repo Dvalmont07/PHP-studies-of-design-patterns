@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * IHasArnor - interface to compose the armor use.
+ * ArmorsEnum - Lists all armors.
  *
  * @category Abstract_Factory
  *
@@ -15,22 +15,20 @@
  * @since 1.0.0
  */
 
-namespace Armors;
+namespace Enums;
 
 /**
- * IHasArnor - interface to compose the armor use.
+ * ArmorsEnum - Lists all armors.
  *
- * @category Armors
+ * @category Enum
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-interface IHasArnor
+abstract class ArmorsEnum
 {
-    /**
-     * Character can equip weapon.
-     */
-    public function equipArmor();
+    public static $fireArmor = 'fireArmor';
+    public static $iceArmor = 'iceArmor';
 }

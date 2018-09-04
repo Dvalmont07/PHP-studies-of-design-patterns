@@ -18,9 +18,12 @@
 namespace Characters;
 
 use Weapons\IHasWeapon;
+use Armors\IHasArmor;
 use Enums\ElementalEnum;
 use Enums\WeaponsEnum;
+use Enums\ArmorsEnum;
 use Factories\WeaponFactory;
+use Factories\ArmorFactory;
 
 /**
  * BobHumanEnemy - subclass of Character that creates human enemies.
@@ -32,20 +35,20 @@ use Factories\WeaponFactory;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class BobHumanEnemy extends HumanEnemy implements IHasWeapon
+class BobHumanEnemy extends HumanEnemy implements IHasWeapon, IHasArmor
 {
+    private $_basePpower = 10.1;
+
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $power = 10.1;
         $strngths = array(ElementalEnum::$fire);
         $weaknesses = array(ElementalEnum::$water);
         $this->setName('Bob');
-        $this->setDescription('A mad lad');
-        $this->setPower($power);
-        $this->setPower($this->equipWeapon()->getPower());
+        $this->setDescription('The mad lad');
+        $this->setPower($this->_basePpower);
         $this->setSpeed(45.1);
         $this->setDefense(11.1);
         $this->setEnergy(50.1);
@@ -53,17 +56,41 @@ class BobHumanEnemy extends HumanEnemy implements IHasWeapon
         $this->setAlignment('evil');
         $this->setStrengths($strngths);
         $this->setWeaknesses($weaknesses);
+
+        //Equips
+        $this->equipWeapon();
+        $this->equipArmor();
     }
 
     /**
-     * Character can equip weapon.
+     * Undocumented function.
+     *
+     * @return class
      */
     public function equipWeapon()
     {
-        $weapon = WeaponFactory::createFactory(WeaponsEnum::$katanaSword);
+        $result = WeaponFactory::createFactory(WeaponsEnum::$katanaSword);
 
-        $this->setScreenText("&emsp;{$this->getName()} has {$weapon->getName()}, {$weapon->getDescription()} :: pwr {$weapon->getPower()} <br/>");
+        $this->setScreenText("&emsp;{$this->getName()} has {$result->getName()}, {$result->getDescription()} :: power {$result->getPower()} <br/>");
 
-        return $weapon;
+        $this->setPower($result->getPower());
+
+        return $result;
+    }
+
+    /**
+     * Undocumented function.
+     *
+     * @return class
+     */
+    public function equipArmor()
+    {
+        $result = ArmorFactory::createFactory(ArmorsEnum::$fireArmor);
+
+        $this->setScreenText("&emsp;{$this->getName()} has {$result->getName()}, {$result->getDescription()} :: defense {$result->getDefense()} <br/>");
+
+        $this->setDefense($result->getDefense());
+
+        return $result;
     }
 }

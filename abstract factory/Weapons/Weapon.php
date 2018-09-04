@@ -55,7 +55,7 @@ abstract class Weapon extends GeneralProperties
      */
     public function setPower($_power)
     {
-        $this->_power = $_power;
+        $this->_power += $_power;
 
         return $this;
     }

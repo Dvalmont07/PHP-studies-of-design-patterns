@@ -14,4 +14,9 @@
  * @see   "http://www.seoseedrank.com.br/sobre"
  * @since 1.0.0
  */
- define('ENVIRONMENT_MODIFIER', 2.0);
+define('ENVIRONMENT_MODIFIER', 2.0);
+
+//Database connection
+define(DSN, 'mysql:host=localhost;dbname=db_estudos');
+define(DB_USER, 'root');
+define(DB_PASSWORD, '');
