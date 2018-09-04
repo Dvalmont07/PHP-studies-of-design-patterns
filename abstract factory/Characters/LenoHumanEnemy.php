@@ -15,6 +15,10 @@
  * @since 1.0.0
  */
 
+namespace Characters;
+
+use Enums\ElementalEnum;
+
 /**
  * LenoHumanEnemy - subclass of Character that creates human enemies.
  *

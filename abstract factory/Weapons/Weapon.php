@@ -15,6 +15,10 @@
  * @since 1.0.0
  */
 
+namespace Weapons;
+
+use Utilities\GeneralProperties;
+
 /**
  * Weapon - Interface that set weapons.
  *

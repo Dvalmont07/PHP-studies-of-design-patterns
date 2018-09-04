@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * WeaponFactory - The class the creates sand enemies.
+ * BowWeapon - Subclass of Weapon.
  *
  * @category Abstract_Factory
  *
@@ -15,8 +15,10 @@
  * @since 1.0.0
  */
 
+namespace Weapons;
+
 /**
- * WeaponFactory - The class the creates sand enemies.
+ * BowWeapon - Subclass of Weapon.
  *
  * @category Class
  *
@@ -25,21 +27,19 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class WeaponFactory implements IFactory
+class BowWeapon extends Weapon
 {
     /**
-     * Creates Human enemies.
-     *
-     * @param string $string the type of the enemy
-     *
-     * @return class
+     * Undocumented function.
      */
-    public static function createFactory($string)
+    public function __construct()
     {
-        if ($string == WeaponsEnum::$katanaSword) {
-            return new KatanaWeapon();
-        } elseif ($string == WeaponsEnum::$thunderBow) {
-            return new BowWeapon();
-        }
+        $this->setName('The Thunder Bow');
+        $this->setDescription('A short bow');
+        $this->setPower(1);
+        $this->setRange(5);
+        $this->setReach(ReachEnum::$both);
+        $this->setWeaknesses(ElementalEnum::$earth);
+        $this->setStrengths(ElementalEnum::$lightning);
     }
 }

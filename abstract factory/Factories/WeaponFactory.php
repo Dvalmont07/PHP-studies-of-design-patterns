@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * KatanaWeapon - Subclass of Weapon.
+ * WeaponFactory - The class the creates sand enemies.
  *
  * @category Abstract_Factory
  *
@@ -15,8 +15,13 @@
  * @since 1.0.0
  */
 
+namespace Factories;
+
+use Enums\WeaponsEnum;
+use Weapons\KatanaWeapon;
+
 /**
- * KatanaWeapon - Subclass of Weapon.
+ * WeaponFactory - The class the creates sand enemies.
  *
  * @category Class
  *
@@ -25,20 +30,21 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class KatanaWeapon extends Weapon
+class WeaponFactory implements IFactory
 {
     /**
-     * Undocumented function.
+     * Creates Human enemies.
+     *
+     * @param string $string the type of the enemy
+     *
+     * @return class
      */
-    public function __construct()
+    public static function createFactory($string)
     {
-        $this->setName('Katana Sowrd');
-        $this->setDescription('An ancient mistical sorwd');
-        $this->setPower(2.5);
-        $this->setRange(1);
-        $this->setReach(ReachEnum::$ground);
-        $this->setWeaknesses(ElementalEnum::$neutral);
-        $this->setStrengths(ElementalEnum::$neutral);
-        $this->setEnvironment(ElementalEnum::$neutral);
+        if ($string == WeaponsEnum::$katanaSword) {
+            return new KatanaWeapon();
+        } elseif ($string == WeaponsEnum::$thunderBow) {
+            return new BowWeapon();
+        }
     }
 }

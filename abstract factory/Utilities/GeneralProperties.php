@@ -15,6 +15,8 @@
  * @since 1.0.0
  */
 
+namespace Utilities;
+
 /**
  * GeneralProperties - the interface to set the common properties.
  *

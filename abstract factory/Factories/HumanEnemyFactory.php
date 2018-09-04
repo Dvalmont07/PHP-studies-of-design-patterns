@@ -15,6 +15,12 @@
  * @since 1.0.0
  */
 
+namespace Factories;
+
+use Enums\HumanEnemyEnum;
+use Characters\BobHumanEnemy;
+use Characters\LenoHumanEnemy;
+
 /**
  * HumanEnemyFactory - The class the creates sand enemies.
  *

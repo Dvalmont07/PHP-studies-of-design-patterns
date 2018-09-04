@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * ElementalEnum - Lists all elements.
+ * HumanEnemyEnum - Lists all human enemies.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * ElementalEnum - Lists all elements.
+ * HumanEnemyEnum - Lists all human enemies.
  *
  * @category Enum
  *
@@ -25,14 +25,11 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class ElementalEnum
+
+namespace Enums;
+
+abstract class HumanEnemyEnum
 {
-    public static $water = 'water';
-    public static $wind = 'wind';
-    public static $earth = 'earth';
-    public static $fire = 'fire';
-    public static $holy = 'holy';
-    public static $dark = 'dark';
-    public static $lightning = 'lightning';
-    public static $neutral = 'neutral';
+    public static $bob = 'Bob';
+    public static $leno = 'Leno';
 }

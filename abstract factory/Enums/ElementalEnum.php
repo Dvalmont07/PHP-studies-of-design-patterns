@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * WeaponsEnum - Lists all Weapons.
+ * ElementalEnum - Lists all elements.
  *
  * @category Abstract_Factory
  *
@@ -15,8 +15,10 @@
  * @since 1.0.0
  */
 
+namespace Enums;
+
 /**
- * WeaponsEnum - Lists all Weapons.
+ * ElementalEnum - Lists all elements.
  *
  * @category Enum
  *
@@ -25,8 +27,14 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class WeaponsEnum
+abstract class ElementalEnum
 {
-    public static $katanaSword = 'katanaSword';
-    public static $thunderBow = 'thunderBow';
+    public static $water = 'water';
+    public static $wind = 'wind';
+    public static $earth = 'earth';
+    public static $fire = 'fire';
+    public static $holy = 'holy';
+    public static $dark = 'dark';
+    public static $lightning = 'lightning';
+    public static $neutral = 'neutral';
 }

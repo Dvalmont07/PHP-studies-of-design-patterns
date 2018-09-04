@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * HumanEnemyEnum - Lists all human enemies.
+ * WeaponsEnum - Lists all Weapons.
  *
  * @category Abstract_Factory
  *
@@ -16,7 +16,7 @@
  */
 
 /**
- * HumanEnemyEnum - Lists all human enemies.
+ * WeaponsEnum - Lists all Weapons.
  *
  * @category Enum
  *
@@ -25,8 +25,11 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class HumanEnemyEnum
+
+namespace Enums;
+
+abstract class WeaponsEnum
 {
-    public static $bob = 'Bob';
-    public static $leno = 'Leno';
+    public static $katanaSword = 'katanaSword';
+    public static $thunderBow = 'thunderBow';
 }

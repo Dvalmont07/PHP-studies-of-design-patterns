@@ -15,6 +15,10 @@
  * @since 1.0.0
  */
 
+namespace Characters;
+
+use Utilities\GeneralProperties;
+
 /**
  * Character - the interface to create characters.
  *
@@ -49,16 +53,6 @@ abstract class Character extends GeneralProperties
         echo $this->getScreenText();
     }
 
-    // /**
-    //  * Undocumented function.
-    //  */
-    // public function checkWeapon($class)
-    // {
-    //     if ($this instanceof Weapon) {
-    //         $this->_screenText .= "{$class->getName()}<br/>";
-    //     }
-    // }
-
     /**
      * Undocumented function.
      */
@@ -77,7 +71,7 @@ abstract class Character extends GeneralProperties
      */
     public function setPower($_power)
     {
-        $this->_power = $_power;
+        $this->_power += $_power;
 
         return $this;
     }

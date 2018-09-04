@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * HumanEnemyEnum - Lists possible reaches: if it's ground, air or both.
+ * ICharacterFactory.
  *
  * @category Abstract_Factory
  *
@@ -15,19 +15,26 @@
  * @since 1.0.0
  */
 
+namespace Factories;
+
 /**
- * HumanEnemyEnum - Lists all human enemies.
+ * ICharacterFactory - The class the creates sand characters.
  *
- * @category Enum
+ * @category Interface
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-abstract class ReachEnum
+interface IFactory
 {
-    public static $ground = 'ground';
-    public static $air = 'air';
-    public static $both = 'both';
+    /**
+     * Creates enemies.
+     *
+     * @param string $string the type of enemy
+     *
+     * @return class
+     */
+    public static function createFactory($string);
 }

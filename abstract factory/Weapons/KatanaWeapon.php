@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * BowWeapon - Subclass of Weapon.
+ * KatanaWeapon - Subclass of Weapon.
  *
  * @category Abstract_Factory
  *
@@ -15,8 +15,13 @@
  * @since 1.0.0
  */
 
+namespace Weapons;
+
+use Enums\ReachEnum;
+use Enums\ElementalEnum;
+
 /**
- * BowWeapon - Subclass of Weapon.
+ * KatanaWeapon - Subclass of Weapon.
  *
  * @category Class
  *
@@ -25,19 +30,20 @@
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class BowWeapon extends Weapon
+class KatanaWeapon extends Weapon
 {
     /**
      * Undocumented function.
      */
     public function __construct()
     {
-        $this->setName('The Thunder Bow');
-        $this->setDescription('A short bow');
-        $this->setPower(1);
-        $this->setRange(5);
-        $this->setReach(ReachEnum::$both);
-        $this->setWeaknesses(ElementalEnum::$earth);
-        $this->setStrengths(ElementalEnum::$lightning);
+        $this->setName('Katana Sowrd');
+        $this->setDescription('An ancient mistical sorwd');
+        $this->setPower(2.5);
+        $this->setRange(1);
+        $this->setReach(ReachEnum::$ground);
+        $this->setWeaknesses(ElementalEnum::$neutral);
+        $this->setStrengths(ElementalEnum::$neutral);
+        $this->setEnvironment(ElementalEnum::$neutral);
     }
 }

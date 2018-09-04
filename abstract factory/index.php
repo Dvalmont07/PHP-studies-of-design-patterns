@@ -14,6 +14,9 @@
  * @see   "http://www.seoseedrank.com.br/sobre"
  * @since 1.0.0
  */
+use Factories\HumanEnemyFactory;
+use Enums\ElementalEnum;
+use Enums\HumanEnemyEnum;
 
 /**
  * PHP version 7.2.4
@@ -30,7 +33,7 @@
  * @see   "http://www.seoseedrank.com.br/sobre"
  * @since 1.0.0
  */
-require_once 'config.php';
+require_once 'Config/config.php';
 require_once '../autoload.php';
 
 $environment = ElementalEnum::$fire;

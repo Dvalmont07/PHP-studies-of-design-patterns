@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * HumanEnemy - subclass of Character that creates human enemies.
+ * IHasWeapon - interface to compose the weapon use.
  *
  * @category Abstract_Factory
  *
@@ -15,16 +15,22 @@
  * @since 1.0.0
  */
 
+namespace Weapons;
+
 /**
- * HumanEnemy - subclass of Character that creates human enemies.
+ * IHasWeapon - interface to compose the weapon use.
  *
- * @category Class
+ * @category Interface
  *
  * @author  Danilo Lobo Matos <danilo.dejesusmatos@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class HumanEnemy extends Character
+interface IHasWeapon
 {
+    /**
+     * Character can equip weapon.
+     */
+    public function equipWeapon();
 }

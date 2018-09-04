@@ -15,6 +15,13 @@
  * @since 1.0.0
  */
 
+namespace Characters;
+
+use Weapons\IHasWeapon;
+use Enums\ElementalEnum;
+use Enums\WeaponsEnum;
+use Factories\WeaponFactory;
+
 /**
  * BobHumanEnemy - subclass of Character that creates human enemies.
  *
@@ -38,6 +45,7 @@ class BobHumanEnemy extends HumanEnemy implements IHasWeapon
         $this->setName('Bob');
         $this->setDescription('A mad lad');
         $this->setPower($power);
+        $this->setPower($this->equipWeapon()->getPower());
         $this->setSpeed(45.1);
         $this->setDefense(11.1);
         $this->setEnergy(50.1);
@@ -45,7 +53,6 @@ class BobHumanEnemy extends HumanEnemy implements IHasWeapon
         $this->setAlignment('evil');
         $this->setStrengths($strngths);
         $this->setWeaknesses($weaknesses);
-        $power += $this->equipWeapon()->getPower();
     }
 
     /**
@@ -58,12 +65,5 @@ class BobHumanEnemy extends HumanEnemy implements IHasWeapon
         $this->setScreenText("&emsp;{$this->getName()} has {$weapon->getName()}, {$weapon->getDescription()} :: pwr {$weapon->getPower()} <br/>");
 
         return $weapon;
-    }
-
-    /**
-     * Character can unequip weapon.
-     */
-    public function unEquipWeapon()
-    {
     }
 }
