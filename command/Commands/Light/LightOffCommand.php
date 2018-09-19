@@ -1,7 +1,8 @@
 <?php
+
 /**
  * PHP version 7.2.4
- * GarageDoorOpenCommand - A class tha executes commands.
+ * LightOffCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -15,12 +16,13 @@
  * @since 1.0.0
  */
 
-namespace Commands;
+namespace Commands\Light;
 
-use Devices\GarageDoor;
+use Devices\Light;
+use Commands\ICommand;
 
 /**
- * GarageDoorOpenCommand - The device class.
+ * LightOffCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -29,16 +31,16 @@ use Devices\GarageDoor;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class GarageDoorOpenCommand implements ICommand
+class LightOffCommand implements ICommand
 {
-    private $_command;
+    private $_light;
 
     /**
      * Undocumented function.
      */
     public function __construct()
     {
-        $this->_command = new GarageDoor();
+        $this->_light = new Light();
     }
 
     /**
@@ -46,6 +48,6 @@ class GarageDoorOpenCommand implements ICommand
      */
     public function execute()
     {
-        $this->_command->up();
+        $this->_light->off();
     }
 }

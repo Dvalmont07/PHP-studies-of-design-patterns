@@ -2,7 +2,7 @@
 
 /**
  * PHP version 7.2.4
- * LightOnCommand - A class tha executes commands.
+ * NoCommand - A empty class to avoid ifs.
  *
  * @category Command
  *
@@ -18,10 +18,8 @@
 
 namespace Commands;
 
-use Devices\Light;
-
 /**
- * Light - The device class.
+ * NoCommand - A empty class to avoid ifs.
  *
  * @category Command
  *
@@ -30,24 +28,13 @@ use Devices\Light;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class LightOnCommand implements ICommand {
-
-    private $_light;
-
-    /**
-     * Undocumented function.
-     *
-     * @param Light $class x
-     */
-    public function __construct() {
-        $this->_light = new Light();
-    }
-
+class NoCommand implements ICommand
+{
     /**
      * Undocumented function.
      */
-    public function execute() {
-        $this->_light->on();
+    public function execute()
+    {
+        echo 'no command';
     }
-
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2.4
- * SimpleRemoteControl - A class tha executes commands.
+ * GarageDoorOpenCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -15,10 +15,13 @@
  * @since 1.0.0
  */
 
-namespace Commands;
+namespace Commands\Garage;
+
+use Devices\GarageDoor;
+use Commands\ICommand;
 
 /**
- * SimpleRemoteControl - A class tha executes commands.
+ * GarageDoorOpenCommand - The device class.
  *
  * @category Command
  *
@@ -27,25 +30,23 @@ namespace Commands;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SimpleRemoteControl
+class GarageDoorOpenCommand implements ICommand
 {
-    private $_slot;
+    private $_command;
 
     /**
      * Undocumented function.
-     *
-     * @param ICommand $command x
      */
-    public function setCommand(ICommand $command)
+    public function __construct()
     {
-        $this->_slot = $command;
+        $this->_command = new GarageDoor();
     }
 
     /**
      * Undocumented function.
      */
-    public function buttonWasPressed()
+    public function execute()
     {
-        $this->_slot->execute();
+        $this->_command->up();
     }
 }

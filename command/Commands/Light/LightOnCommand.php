@@ -1,7 +1,8 @@
 <?php
+
 /**
  * PHP version 7.2.4
- * SimpleRemoteControl - A class tha executes commands.
+ * LightOnCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -15,10 +16,13 @@
  * @since 1.0.0
  */
 
-namespace Commands;
+namespace Commands\Light;
+
+use Commands\ICommand;
+use Devices\Light;
 
 /**
- * SimpleRemoteControl - A class tha executes commands.
+ * Light - The device class.
  *
  * @category Command
  *
@@ -27,25 +31,25 @@ namespace Commands;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class SimpleRemoteControl
+class LightOnCommand implements ICommand
 {
-    private $_slot;
+    private $_light;
 
     /**
      * Undocumented function.
      *
-     * @param ICommand $command x
+     * @param Light $class x
      */
-    public function setCommand(ICommand $command)
+    public function __construct()
     {
-        $this->_slot = $command;
+        $this->_light = new Light();
     }
 
     /**
      * Undocumented function.
      */
-    public function buttonWasPressed()
+    public function execute()
     {
-        $this->_slot->execute();
+        $this->_light->on();
     }
 }
