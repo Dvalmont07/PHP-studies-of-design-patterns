@@ -37,4 +37,9 @@ class NoCommand implements ICommand
     {
         echo 'no command';
     }
+
+    public function undo() {
+     echo 'no command undo';   
+    }
+
 }

@@ -33,7 +33,7 @@ use Devices\Light;
  */
 class LightOnCommand implements ICommand
 {
-    private $_light;
+    private $_command;
 
     /**
      * Undocumented function.
@@ -42,7 +42,7 @@ class LightOnCommand implements ICommand
      */
     public function __construct()
     {
-        $this->_light = new Light();
+        $this->_command = new Light();
     }
 
     /**
@@ -50,6 +50,11 @@ class LightOnCommand implements ICommand
      */
     public function execute()
     {
-        $this->_light->on();
+        $this->_command->on();
     }
+
+    public function undo() {
+        $this->_command->off();
+    }
+
 }

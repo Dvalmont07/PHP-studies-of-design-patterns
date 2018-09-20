@@ -49,4 +49,9 @@ class GarageLightsOffCommand implements ICommand
     {
         $this->_command->lightsOff();
     }
+
+    public function undo() {
+         $this->_command->lightsOn();
+    }
+
 }

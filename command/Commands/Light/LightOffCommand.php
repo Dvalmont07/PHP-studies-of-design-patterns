@@ -33,14 +33,14 @@ use Commands\ICommand;
  */
 class LightOffCommand implements ICommand
 {
-    private $_light;
+    private $_command;
 
     /**
      * Undocumented function.
      */
     public function __construct()
     {
-        $this->_light = new Light();
+        $this->_command = new Light();
     }
 
     /**
@@ -48,6 +48,11 @@ class LightOffCommand implements ICommand
      */
     public function execute()
     {
-        $this->_light->off();
+        $this->_command->off();
     }
+
+    public function undo() {
+        $this->_command->on();
+    }
+
 }

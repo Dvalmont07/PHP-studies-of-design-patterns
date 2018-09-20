@@ -2,7 +2,7 @@
 
 /**
  * PHP version 7.2.4
- * ICommand - Interface that set commands.
+ * MacroCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -19,7 +19,7 @@
 namespace Commands;
 
 /**
- * ICommand - Interface that set commands.
+ * MacroCommand - A class tha executes commands.
  *
  * @category Command
  *
@@ -28,15 +28,38 @@ namespace Commands;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-interface ICommand
+class MacroCommand implements ICommand
 {
+    private $_commands = array();
+
     /**
      * Undocumented function.
+     *
+     * @param ICommand $commands x
      */
-    public function execute();
+    public function __construct($commands)
+    {
+        $this->_commands = $commands;
+    }
 
     /**
      * Undocumented function.
      */
-    public function undo();
+    public function execute()
+    {
+        for ($i = 0; $i < count($this->_commands); $i++) {
+            
+            $this->_commands[$i]->execute();
+        }
+    }
+
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    { for ($i = 0; $i < count($this->_commands); $i++) {
+            
+            $this->_commands[$i]->undo();
+        }
+    }
 }

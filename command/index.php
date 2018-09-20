@@ -23,6 +23,7 @@
  use Commands\Garage\GarageDoorCloseCommand;
  use Commands\Garage\GarageLightsOnCommand;
  use Commands\Garage\GarageLightsOffCommand;
+ use Commands\MacroCommand;
 
  /**
  * PHP version 7.2.4
@@ -42,6 +43,9 @@
 require_once 'Config/config.php';
 require_once '../autoload.php';
 
+/**
+ * @todo Implemet Factory here
+ */
 $remote = new SimpleRemoteControl();
 $lightOn = new LightOnCommand();
 $LighhtOff = new LightOffCommand();
@@ -68,11 +72,24 @@ $remoteControl->setCommand(0, $lightOn, $LighhtOff);
 $remoteControl->setCommand(1, $garageOpen, $garageClose);
 $remoteControl->setCommand(2, $garageLightsOn, $garageLightsOff);
 $remoteControl->lightOnButtonWasPressed(0);
+$remoteControl->undoButtonWasPressed();
 $remoteControl->lightOffButtonWasPressed(0);
+$remoteControl->undoButtonWasPressed();
 $remoteControl->upButtonWasPressed(1);
+$remoteControl->undoButtonWasPressed();
 $remoteControl->downButtonWasPressed(1);
 $remoteControl->lightOnButtonWasPressed(2);
 $remoteControl->lightOffButtonWasPressed(2);
+$remoteControl->undoButtonWasPressed();
+$remoteControl->undoButtonWasPressed();
+
+echo '<h1>Macro Command</h1>';
+
+$macro = array($lightOn, $garageOpen, $garageLightsOff);
+$macroCommand = new MacroCommand($macro);
+
+$macroCommand->execute();
+$macroCommand->undo();
 
 ?>
 

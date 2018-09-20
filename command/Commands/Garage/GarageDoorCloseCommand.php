@@ -49,4 +49,9 @@ class GarageDoorCloseCommand implements ICommand
     {
         $this->_command->down();
     }
+
+    public function undo() {
+        $this->_command->up();
+    }
+
 }

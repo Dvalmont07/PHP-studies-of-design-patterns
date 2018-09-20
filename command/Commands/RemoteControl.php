@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7.2.4
  * RemoteControl - A class tha executes commands.
@@ -30,9 +31,9 @@ namespace Commands;
 class RemoteControl
 {
     private $_slots = 7;
-
     private $_onComands = array();
     private $_offComands = array();
+    private $_undoCommand;
 
     /**
      * Undocumented function.
@@ -45,6 +46,8 @@ class RemoteControl
             $this->_onComands[$i] = $noCommand;
             $this->_offComands[$i] = $noCommand;
         }
+
+        $this->_undoCommand = $noCommand;
     }
 
     /**
@@ -68,6 +71,8 @@ class RemoteControl
     public function lightOnButtonWasPressed(Int $slot)
     {
         $this->_onComands[$slot]->execute();
+
+        $this->_undoCommand = $this->_onComands[$slot];
     }
 
     /**
@@ -78,6 +83,7 @@ class RemoteControl
     public function lightOffButtonWasPressed(Int $slot)
     {
         $this->_offComands[$slot]->execute();
+        $this->_undoCommand = $this->_offComands[$slot];
     }
 
     /**
@@ -98,5 +104,14 @@ class RemoteControl
     public function upButtonWasPressed(Int $slot)
     {
         $this->_onComands[$slot]->execute();
+        $this->_undoCommand = $this->_onComands[$slot];
+    }
+
+    /**
+     * Undocumented function.
+     */
+    public function undoButtonWasPressed()
+    {
+        $this->_undoCommand->undo();
     }
 }
