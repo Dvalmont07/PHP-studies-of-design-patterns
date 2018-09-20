@@ -31,30 +31,21 @@ use Devices\Light;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class LightOnCommand implements ICommand
+class LightOnCommand extends Light implements ICommand
 {
-    private $_command;
-
-    /**
-     * Undocumented function.
-     *
-     * @param Light $class x
-     */
-    public function __construct()
-    {
-        $this->_command = new Light();
-    }
-
     /**
      * Undocumented function.
      */
     public function execute()
     {
-        $this->_command->on();
+        $this->on();
     }
 
-    public function undo() {
-        $this->_command->off();
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    {
+        $this->off();
     }
-
 }

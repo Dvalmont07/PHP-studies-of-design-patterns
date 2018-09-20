@@ -71,9 +71,10 @@ $remoteControl = new RemoteControl();
 $remoteControl->setCommand(0, $lightOn, $LighhtOff);
 $remoteControl->setCommand(1, $garageOpen, $garageClose);
 $remoteControl->setCommand(2, $garageLightsOn, $garageLightsOff);
+$remoteControl->upButtonWasPressed(1);
 $remoteControl->lightOnButtonWasPressed(0);
 $remoteControl->undoButtonWasPressed();
-$remoteControl->lightOffButtonWasPressed(0);
+
 $remoteControl->undoButtonWasPressed();
 $remoteControl->upButtonWasPressed(1);
 $remoteControl->undoButtonWasPressed();

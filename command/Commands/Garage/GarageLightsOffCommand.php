@@ -30,28 +30,21 @@ use Commands\ICommand;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class GarageLightsOffCommand implements ICommand
+class GarageLightsOffCommand extends GarageDoor implements ICommand
 {
-    private $_command;
-
-    /**
-     * Undocumented function.
-     */
-    public function __construct()
-    {
-        $this->_command = new GarageDoor();
-    }
-
     /**
      * Undocumented function.
      */
     public function execute()
     {
-        $this->_command->lightsOff();
+        $this->lightsOff();
     }
 
-    public function undo() {
-         $this->_command->lightsOn();
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    {
+        $this->lightsOn();
     }
-
 }

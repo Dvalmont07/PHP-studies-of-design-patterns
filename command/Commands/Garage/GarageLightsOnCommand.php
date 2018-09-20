@@ -17,8 +17,8 @@
 
 namespace Commands\Garage;
 
-use Devices\GarageDoor;
 use Commands\ICommand;
+use Devices\GarageDoor;
 
 /**
  * GarageLightsOnCommand - A class tha executes commands.
@@ -30,28 +30,21 @@ use Commands\ICommand;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class GarageLightsOnCommand implements ICommand
+class GarageLightsOnCommand extends GarageDoor implements ICommand
 {
-    private $_command;
-
-    /**
-     * Undocumented function.
-     */
-    public function __construct()
-    {
-        $this->_command = new GarageDoor();
-    }
-
     /**
      * Undocumented function.
      */
     public function execute()
     {
-        $this->_command->lightsOn();
+        $this->lightsOn();
     }
 
-    public function undo() {
-         $this->_command->lightsOff();
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    {
+        $this->lightsOff();
     }
-
 }

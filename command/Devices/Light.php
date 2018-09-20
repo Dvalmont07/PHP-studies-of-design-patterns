@@ -27,14 +27,14 @@ namespace Devices;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class Light
+abstract class Light
 {
     /**
      * Undocumented function.
      *
      * @return string
      */
-    public function on()
+    protected function on()
     {
         echo 'The light is ON<br/>';
     }
@@ -44,7 +44,7 @@ class Light
      *
      * @return string
      */
-    public function off()
+    protected function off()
     {
         echo 'The light is OFF<br/>';
     }

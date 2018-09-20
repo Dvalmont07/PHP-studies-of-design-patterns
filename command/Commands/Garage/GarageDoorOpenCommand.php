@@ -17,8 +17,8 @@
 
 namespace Commands\Garage;
 
-use Devices\GarageDoor;
 use Commands\ICommand;
+use Devices\GarageDoor;
 
 /**
  * GarageDoorOpenCommand - The device class.
@@ -30,28 +30,21 @@ use Commands\ICommand;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class GarageDoorOpenCommand implements ICommand
+class GarageDoorOpenCommand extends GarageDoor implements ICommand
 {
-    private $_command;
-
-    /**
-     * Undocumented function.
-     */
-    public function __construct()
-    {
-        $this->_command = new GarageDoor();
-    }
-
     /**
      * Undocumented function.
      */
     public function execute()
     {
-        $this->_command->up();
+        $this->up();
     }
 
-    public function undo() {
-         $this->_command->down();
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    {
+        $this->down();
     }
-
 }

@@ -28,12 +28,12 @@ namespace Devices;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class GarageDoor
+abstract class GarageDoor
 {
     /**
      * Undocumented function.
      */
-    public function up()
+    protected function up()
     {
         echo 'The garage door is UP<br/>';
     }
@@ -41,7 +41,7 @@ class GarageDoor
     /**
      * Undocumented function.
      */
-    public function down()
+    protected function down()
     {
         echo 'The garage door is DOWN<br/>';
     }
@@ -51,7 +51,7 @@ class GarageDoor
      *
      * @return string
      */
-    public function lightsOn()
+    protected function lightsOn()
     {
         echo 'The garage light is ON<br/>';
     }
@@ -61,7 +61,7 @@ class GarageDoor
      *
      * @return string
      */
-    public function lightsOff()
+    protected function lightsOff()
     {
         echo 'The garage light is OFF<br/>';
     }

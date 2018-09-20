@@ -18,8 +18,8 @@
 
 namespace Commands\Light;
 
-use Devices\Light;
 use Commands\ICommand;
+use Devices\Light;
 
 /**
  * LightOffCommand - A class tha executes commands.
@@ -31,28 +31,21 @@ use Commands\ICommand;
  *
  * @see "http://www.seoseedrank.com.br/sobre"
  */
-class LightOffCommand implements ICommand
+class LightOffCommand extends Light implements ICommand
 {
-    private $_command;
-
-    /**
-     * Undocumented function.
-     */
-    public function __construct()
-    {
-        $this->_command = new Light();
-    }
-
     /**
      * Undocumented function.
      */
     public function execute()
     {
-        $this->_command->off();
+        $this->off();
     }
 
-    public function undo() {
-        $this->_command->on();
+    /**
+     * Undocumented function.
+     */
+    public function undo()
+    {
+        $this->on();
     }
-
 }

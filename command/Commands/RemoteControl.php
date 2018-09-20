@@ -36,7 +36,7 @@ class RemoteControl
     private $_undoCommand;
 
     /**
-     * Undocumented function.
+     * Setting up the slots with empties objects to avoid errors.
      */
     public function __construct()
     {
@@ -51,7 +51,7 @@ class RemoteControl
     }
 
     /**
-     * Undocumented function.
+     * Set up the on/off commands objects to the respective slots.
      *
      * @param int      $slot       x
      * @param ICommand $onCommand  x
