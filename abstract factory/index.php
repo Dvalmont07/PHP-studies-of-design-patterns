@@ -37,7 +37,6 @@ require_once 'Config/config.php';
 require_once '../autoload.php';
 
 $environment = ElementalEnum::$fire;
-
 $enemy = HumanEnemyFactory::createFactory(HumanEnemyEnum::$bob);
 
 $enemy->setEnvironment($environment);

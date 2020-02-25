@@ -14,7 +14,7 @@
  */
 
 /**
- * Enemy - Interface class.
+ * Enemy - Interface class
  *
  * @category Abstract
  *
